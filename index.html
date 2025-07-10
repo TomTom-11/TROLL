@@ -5,58 +5,92 @@
   <title>Alerte Système</title>
   <style>
     body {
-      background-color: #f2f2f7;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .alert-box {
-      background: white;
-      border: 1px solid #ccc;
-      border-radius: 15px;
-      padding: 30px 40px;
-      width: 320px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      background-color: black;
+      color: red;
+      font-family: sans-serif;
       text-align: center;
+      padding: 40px;
     }
-    .alert-title {
-      font-size: 22px;
-      font-weight: 600;
-      color: #d32f2f;
-      margin-bottom: 10px;
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
     }
-    .alert-message {
-      font-size: 16px;
-      color: #333;
-      margin-bottom: 25px;
-    }
-    button {
-      background-color: #007aff;
-      border: none;
+
+    .warning {
+      font-size: 20px;
+      margin-bottom: 30px;
       color: white;
-      padding: 12px 25px;
-      border-radius: 10px;
-      font-size: 17px;
-      cursor: pointer;
-      transition: background-color 0.2s;
     }
+
+    .countdown {
+      font-size: 30px;
+      color: yellow;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .important {
+      font-size: 24px;
+      color: red;
+      margin: 20px 0;
+      animation: blink 1s infinite;
+    }
+
+    button {
+      background-color: red;
+      color: white;
+      padding: 15px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
     button:hover {
-      background-color: #005bb5;
+      background-color: darkred;
+    }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0.1; }
+      100% { opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <div class="alert-box">
-    <div class="alert-title">⚠️ Alerte de sécurité</div>
-    <div class="alert-message">
-      Votre iPhone est infecté par un virus.  
-      Veuillez cliquer sur "OK" pour supprimer immédiatement la menace.
-    </div>
-    <button onclick="alert('Haha, c\'était une blague 😜 !')">OK</button>
-  </div>
+  <h1>⚠️ Un virus a été détecté sur votre iPhone ⚠️</h1>
+
+  <p class="warning">
+    Un pirate vous surveille actuellement.<br>
+    Votre carte SIM est gravement endommagée.<br>
+    Ne quittez surtout pas cette page !
+  </p>
+
+  <div class="important">⏳ Temps restant : <span class="countdown" id="timer">03:00</span></div>
+
+  <button onclick="proteger()">PROTÉGER MAINTENANT</button>
+
+  <script>
+    // Compte à rebours de 3 minutes
+    let time = 180;
+    const timer = document.getElementById("timer");
+
+    const countdown = setInterval(() => {
+      const minutes = Math.floor(time / 60);
+      const seconds = time % 60;
+      timer.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      time--;
+
+      if (time < 0) {
+        clearInterval(countdown);
+        alert("Trop tard... votre appareil a été compromis 😈");
+      }
+    }, 1000);
+
+    function proteger() {
+      alert("Haha ! C’était une blague 🤣 Ton iPhone va très bien.");
+    }
+  </script>
 </body>
 </html>
