@@ -1,1 +1,62 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Alerte Système</title>
+  <style>
+    body {
+      background-color: #f2f2f7;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .alert-box {
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 15px;
+      padding: 30px 40px;
+      width: 320px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    .alert-title {
+      font-size: 22px;
+      font-weight: 600;
+      color: #d32f2f;
+      margin-bottom: 10px;
+    }
+    .alert-message {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 25px;
+    }
+    button {
+      background-color: #007aff;
+      border: none;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 10px;
+      font-size: 17px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    button:hover {
+      background-color: #005bb5;
+    }
+  </style>
+</head>
+<body>
+  <div class="alert-box">
+    <div class="alert-title">⚠️ Alerte de sécurité</div>
+    <div class="alert-message">
+      Votre iPhone est infecté par un virus.  
+      Veuillez cliquer sur "OK" pour supprimer immédiatement la menace.
+    </div>
+    <button onclick="alert('Haha, c\'était une blague 😜 !')">OK</button>
+  </div>
+</body>
+</html>
