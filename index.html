@@ -5,45 +5,60 @@
   <title>Alerte Système</title>
   <style>
     body {
-      background-color: black;
-      color: red;
-      font-family: sans-serif;
+      background-color: white;
+      font-family: -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .alert-box {
+      background-color: white;
+      border: 3px solid red;
+      border-radius: 15px;
+      padding: 60px;
       text-align: center;
-      padding: 40px;
+      width: 90%;
+      max-width: 700px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     }
 
     h1 {
-      font-size: 28px;
-      margin-bottom: 20px;
+      font-size: 3rem;
+      color: red;
+      margin-bottom: 30px;
     }
 
     .warning {
-      font-size: 20px;
-      margin-bottom: 30px;
-      color: white;
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 40px;
     }
 
     .countdown {
-      font-size: 30px;
-      color: yellow;
+      font-size: 3rem;
+      color: #ff0000;
       font-weight: bold;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
     }
 
     .important {
-      font-size: 24px;
+      font-size: 2.5rem;
       color: red;
-      margin: 20px 0;
+      margin-bottom: 30px;
       animation: blink 1s infinite;
     }
 
     button {
+      font-size: 2rem;
+      padding: 25px 40px;
       background-color: red;
       color: white;
-      padding: 15px 25px;
-      font-size: 18px;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
       cursor: pointer;
     }
 
@@ -52,27 +67,28 @@
     }
 
     @keyframes blink {
-      0% { opacity: 1; }
-      50% { opacity: 0.1; }
-      100% { opacity: 1; }
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
     }
   </style>
 </head>
 <body>
-  <h1>⚠️ Un virus a été détecté sur votre iPhone ⚠️</h1>
+  <div class="alert-box">
+    <h1>⚠️ Un virus a été détecté</h1>
 
-  <p class="warning">
-    Un pirate vous surveille actuellement.<br>
-    Votre carte SIM est gravement endommagée.<br>
-    Ne quittez surtout pas cette page !
-  </p>
+    <div class="warning">
+      Un pirate vous surveille actuellement.<br>
+      Votre carte SIM est gravement endommagée.
+    </div>
 
-  <div class="important">⏳ Temps restant : <span class="countdown" id="timer">03:00</span></div>
+    <div class="important">NE QUITTEZ PAS CETTE PAGE</div>
 
-  <button onclick="proteger()">PROTÉGER MAINTENANT</button>
+    <div class="countdown" id="timer">03:00</div>
+
+    <button onclick="proteger()">PROTÉGER MAINTENANT</button>
+  </div>
 
   <script>
-    // Compte à rebours de 3 minutes
     let time = 180;
     const timer = document.getElementById("timer");
 
@@ -89,7 +105,7 @@
     }, 1000);
 
     function proteger() {
-      alert("Haha ! C’était une blague 🤣 Ton iPhone va très bien.");
+      alert("🤣 C’était une blague ! Ton iPhone va très bien.");
     }
   </script>
 </body>
